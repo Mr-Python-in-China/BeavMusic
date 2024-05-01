@@ -1,0 +1,8 @@
+{
+  "name": "@beav-music/server",
+  "version": "0.0.0-dev",
+  "repository": "https://github.com/Mr-Python-in-China/BeavMusic.git",
+  "author": "MrPython <2789762371@qq.com>",
+  "license": "MIT",
+  "private": true
+}
