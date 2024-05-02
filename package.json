@@ -22,6 +22,8 @@
     "typescript": "^5.4.5"
   },
   "workspaces": [
-    "interface/"
+    "interface/",
+    "server/",
+    "browser/"
   ]
 }
