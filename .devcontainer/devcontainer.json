@@ -23,14 +23,19 @@
         "jeremyrajan.webpack",
         "GitHub.vscode-pull-request-github",
         "ms-vscode.js-debug-nightly",
-        "donjayamanne.githistory"
+        "donjayamanne.githistory",
+        "EditorConfig.EditorConfig"
       ]
     }
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000, 27017],
+  "forwardPorts": [1540, 27017],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn"
+  "postCreateCommand": "yarn",
+
+  "containerEnv":{
+    "DBuri":"mongodb://localhost:27017/beavMusic"
+  }
 }

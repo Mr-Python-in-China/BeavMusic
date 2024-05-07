@@ -15,6 +15,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "react"],
+  plugins: ["@typescript-eslint", "react", "prettier"],
   rules: {},
+  ignorePatterns: ["temp.js", "**/dist/*"],
 };

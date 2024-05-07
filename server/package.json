@@ -4,5 +4,13 @@
   "repository": "https://github.com/Mr-Python-in-China/BeavMusic.git",
   "author": "MrPython <2789762371@qq.com>",
   "license": "LGPL-2.1",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "koa": "^2.15.3",
+    "log4js": "^6.9.1",
+    "mongodb": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0"
+  }
 }
