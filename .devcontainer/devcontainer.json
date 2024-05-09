@@ -33,7 +33,7 @@
   "forwardPorts": [1540, 27017],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn",
+  "postCreateCommand": "corepack yarn",
 
   "containerEnv":{
     "DBuri":"mongodb://localhost:27017/beavMusic"
