@@ -6,7 +6,8 @@
   "license": "LGPL-2.1",
   "private": true,
   "scripts": {
-    "server:dev": "cross-env NODE_ENV=development npx ts-node server/src",
+    "server:dev": "cross-env NODE_ENV=development ts-node server/src",
+    "server:build": "yarn tsc -p server",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "prettier": "prettier --write .",
@@ -30,5 +31,8 @@
     "server/",
     "browser/"
   ],
-  "packageManager": "yarn@4.2.1"
+  "packageManager": "yarn@4.2.1",
+  "dependencies": {
+    "core-js": "^3.37.0"
+  }
 }

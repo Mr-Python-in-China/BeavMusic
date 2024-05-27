@@ -3,7 +3,7 @@
     "incremental": true,
     "target": "es2022",
     "module": "NodeNext",
-    "lib": ["ESNext", "ESNext.Disposable"],
+    "lib": ["ESNext"],
     "resolveJsonModule": true,
     "allowArbitraryExtensions": true,
     "allowSyntheticDefaultImports": true,

@@ -1,10 +1,11 @@
 /* eslint-disable no-var */
-interface BeavMusicGlobal {
-  [Symbol.dispose]: (() => void | PromiseLike<void>)[];
-}
 
 declare global {
-  var BeavMusic: BeavMusicGlobal;
+  namespace BeavMusic {
+    type ServiceName = "db" | "log";
+    let disposes: AsyncDisposableStack;
+  }
+  var isDev: boolean;
 }
 
 export {};

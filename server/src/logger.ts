@@ -13,11 +13,8 @@ const G = log4js.configure({
   },
   categories: {
     default: {
-      appenders:
-        process.env.NODE_ENV === "development"
-          ? ["console"]
-          : ["console", "file"],
-      level: process.env.NODE_ENV === "development" ? "debug" : "info",
+      appenders: globalThis.isDev ? ["console"] : ["console", "file"],
+      level: globalThis.isDev ? "debug" : "info",
     },
   },
 });
@@ -25,7 +22,7 @@ const G = log4js.configure({
 const getLogger = (s?: string) => G.getLogger(s);
 
 const log = getLogger("logger");
-globalThis.BeavMusic[Symbol.dispose].push(() => {
+globalThis.BeavMusic.disposes.defer(() => {
   log.info("Saving logs...");
   G.shutdown();
 });

@@ -1,6 +1,9 @@
+import "core-js/features/async-disposable-stack";
+
 globalThis.BeavMusic = {
-  [Symbol.dispose]: [],
+  disposes: new AsyncDisposableStack(),
 };
+globalThis.isDev = process.env.NODE_ENV === "development";
 
 import getLogger from "./logger";
 import "./db";
@@ -10,24 +13,15 @@ const log = getLogger("Main");
 
 process.on("SIGINT", async () => {
   log.info("Stopped because of SIGINT");
-  await Promise.all(globalThis.BeavMusic[Symbol.dispose].map((x) => x())).catch(
-    (err) => {
-      console.error("Error when stopping server.", err);
-      process.exit(-1);
-    },
-  );
+  await globalThis.BeavMusic.disposes.disposeAsync();
   process.exit(0);
 });
 process.on("SIGTERM", async () => {
   log.info("Stopped because of SIGTERM");
-  await Promise.all(globalThis.BeavMusic[Symbol.dispose].map((x) => x())).catch(
-    (err) => {
-      console.error("Error when stopping server.", err);
-      process.exit(-1);
-    },
-  );
+  await globalThis.BeavMusic.disposes.disposeAsync();
   process.exit(0);
 });
+
 process.on("unhandledRejection", (r, p) => {
-  log.error("Unhandled Rejection. Reason: ", p);
+  log.error("Unhandled Rejection. \nPromise:", p, "\nReason:", r);
 });
